@@ -21,9 +21,9 @@ def get_DHT11(pin: board.pin) -> dict:
 def update_data():
     sensors = {"DHT11_l": get_DHT11(board.D4)}
     
+    logging.basicConfig(level=logging.INFO)
     for sensor_name, sensor_data in sensors.items():
             with open(f"./data/{sensor_name}.json", mode="w+") as output_file:
-                logging.basicConfig(level=logging.INFO)
                 json.dump(sensor_data, output_file)
                 logging.info(f"Dumped {sensor_name} data")
 
