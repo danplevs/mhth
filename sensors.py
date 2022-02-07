@@ -1,8 +1,13 @@
 import logging
+import json
 import board
 import adafruit_dht
 import psutil
-import json
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+
+scheduler = BlockingScheduler()
+
 
 def get_DHT11(pin: board.pin) -> dict:
     for proc in psutil.process_iter():
@@ -19,6 +24,7 @@ def get_DHT11(pin: board.pin) -> dict:
 
 SENSORS = {"DHT11_l": get_DHT11(board.D4)}
 
+@scheduler.scheduled_job("interval", minutes=5)
 def main():
     for sensor_name, sensor_data in SENSORS.items():
             with open(f"./data/{sensor_name}.json", mode="w+") as output_file:
@@ -26,5 +32,5 @@ def main():
                 json.dump(sensor_data, output_file)
                 logging.info(f"Dumped {sensor_name} data")
 
-if __name__ == "__main__":
-    main()
+
+scheduler.start()
