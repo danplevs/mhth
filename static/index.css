@@ -29,6 +29,7 @@ i.ion {
 
 .summary .sensor-item {
   text-align: center;
+  margin-bottom: 2em;
 }
 
 .summary .sensor-item .heading {
