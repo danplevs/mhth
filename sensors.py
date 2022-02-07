@@ -19,9 +19,12 @@ def get_DHT11(pin: board.pin) -> dict:
 
 SENSORS = {"DHT11_l": get_DHT11(board.D4)}
 
-if __name__ == "__main__":
+def main():
     for sensor_name, sensor_data in SENSORS.items():
-        with open(f"./data/{sensor_name}.json", mode="w+") as output_file:
-            logging.basicConfig(level=logging.INFO)
-            json.dump(sensor_data, output_file)
-            logging.info(f"Dumped {sensor_name} data")
+            with open(f"./data/{sensor_name}.json", mode="w+") as output_file:
+                logging.basicConfig(level=logging.INFO)
+                json.dump(sensor_data, output_file)
+                logging.info(f"Dumped {sensor_name} data")
+
+if __name__ == "__main__":
+    main()
