@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>Room Air Quality</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../static/index.css" />
+
+  </head>
+  <body>
+    <div class="ui container summary">
+      <div class="ui grid">
+
+        <div id="temperature" class="eight wide column sensor-item">
+          <div class="heading">
+            <img class="svg-icon" src="{{url_for('static', filename='images/thermometer-outline.svg')}}" /> Temperature
+          </div>
+
+          <div class="value-container">
+            <span class="value">
+              {{ temperature }}
+            </span>
+            <span class="unit">℃</span>
+          </div>
+        </div>
+
+        <div id="humidity" class="eight wide column sensor-item">
+          <div class="heading">
+            <img class="svg-icon" src="{{url_for('static', filename='images/water-outline.svg')}}" /> Humidity
+          </div>
+
+          <div class="value-container">
+            <span class="value">
+              {{ humidity }}
+            </span>
+            <span class="unit">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
