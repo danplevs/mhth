@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mhth"
+version = "0.1.0"
+description = "Monitoring humidity and temperature of my home"
+authors = ["Daniel Levita <danielpec@outlook.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.6,<3.11"
+Flask = "^2.0.2"
+psutil = "^5.9.0"
+adafruit-circuitpython-dht = "^3.7.1"
+google-cloud-bigquery = "^2.32.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
